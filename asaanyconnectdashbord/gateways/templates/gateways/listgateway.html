@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+<div class="container">
+<form class="form-group jumbotron" method=POST>
+    <h2>Known Gateways</h2>
+    <ul>
+        {% for gateway in gateways %}
+        <li>ID: {{gateway.id}} : {{gateway.gatewayname}} has an ip of {{gateway.ipv4addr}}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
+

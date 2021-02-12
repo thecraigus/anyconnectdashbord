@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+<div class="container">
+<form class="form-group jumbotron" method=POST>
+    <h2>Add Gateway</h2>
+    {{form.hidden_tag()}}
+    <div class=form-group>
+        {{form.gatewayname.label()}}
+        {{form.gatewayname()}}
+    </div>
+    <div class=form-group>
+        {{form.ipv4addr.label()}}
+        {{form.ipv4addr}}
+    </div>
+    <div class=form-group>
+        {{form.sshuser.label()}}
+        {{form.sshuser}}
+    </div>
+    <div class=form-group>
+        {{form.sshpassword.label()}}
+        {{form.sshpassword}}
+    </div>
+    <div class=form-group>
+        {{form.confirmpassword.label()}}
+        {{form.confirmpassword}}
+    </div>
+    <div class=form-group>
+        {{form.submit}}
+    </div>
+    {% if form.gatewayname.errors %}      
+    {% for error in form.gatewayname.errors %}
+    <h3>{{ error }}</h3>
+    {% endfor %}  
+    <br>         
+    {% endif %}
+
+    {% if form.ipv4addr.errors %}      
+    {% for error in form.ipv4addr.errors %}
+    <h3>{{ error }}</h3>
+    {% endfor %}  
+    <br>         
+    {% endif %}
+
+
+
+
+</form>
+</div>
+
+{% endblock content %}
+
+
+
+

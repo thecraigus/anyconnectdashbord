@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<meta http-equiv="refresh" content="30">
+
+{% endblock head %}
+
+{% block content %}
+
+
+<div class='container'>
+ <div class='jumbotron'>
+
+    <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Gateway ID</th>
+            <th scope="col">Gateway Name</th>
+            <th scope="col">Connected Clients</th>
+            <th scope="col">Licence Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for gateway in gateways %}
+        <tr>
+            <th scope="row">{{gateway.id}}</th>
+            <td>{{gateway.gatewayname}}</td>
+            <td>{{gateway.currentusers}}</td>
+        </tr>
+        {% endfor %}
+       </tbody>
+        </table>
+
+    <ul>
+
+    </ul>
+
+
+ </div>    
+</div>
+    
+{% endblock content %}
+
+
+
+
+

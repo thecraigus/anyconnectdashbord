@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+<div class="container">
+    <form class="form-group jumbotron" method=POST>
+        <h2>Add Gateway</h2>
+        {{form.hidden_tag()}}
+        <div class=form-group>
+            {{form.gatewayid.label()}}
+            {{form.gatewayid()}}
+        </div>
+        <div class=form-group>
+            {{form.submit}}
+        </div>
+        {% if form.gatewayid.errors %}      
+        {% for error in form.gatewayid.errors %}
+        <h3>{{ error }}</h3>
+        {% endfor %}  
+        <br>         
+        {% endif %}
+
+    
+    
+    
+    
+    </form>
+    </div>
+{% endblock %}
+

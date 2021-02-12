@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+
+    {% endblock %}
+    <title>ASA - AnyConnect Dashbord</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/base.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light rounded-bottom" style="background-color: #305067;">
+        <a class="navbar-brand" href="{{url_for('core.home')}}">AnyConnect Dashbord</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Gateways
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #5f7d93;">
+                  <a class="dropdown-item" href="{{url_for('gateways.list_gateways')}}" style="background-color: #5f7d93;">List</a>
+                  <a class="dropdown-item" href="{{url_for('gateways.add')}}" style="background-color: #5f7d93;">Add</a>
+                  <a class="dropdown-item" href="{{url_for('gateways.del_gateway')}}" style="background-color: #5f7d93;">Remove</a>
+                </div>
+              </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Help</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      {% block content %}
+            
+            
+            
+      {% endblock %}
+      
+
+
+</body>
+</html>
+
+
+
+<!-- <a href="{{url_for('gateways.list_gateways')}}">List Gateways</a>
+<a href="{{url_for('gateways.add')}}">Add Gateways</a> -->
