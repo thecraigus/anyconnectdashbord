@@ -5,6 +5,7 @@ from netmiko import Netmiko
 from netmiko import NetMikoTimeoutException
 from asaanyconnectdashbord.models import gateway
 from asaanyconnectdashbord.models import db
+from time import sleep
 
 
 scheduler = APScheduler()
@@ -14,12 +15,12 @@ def fecthdata():
     for x in targets:
         status = 'Online'
         try:
-            net_connect = Netmiko(host=x.ipv4addr,username=x.sshuser,password=x.sshpass,device_type='cisco_asa', timeout=5)
+            net_connect = Netmiko(host=x.ipv4addr,username=x.sshuser,password=x.sshpass,device_type='cisco_asa', timeout=3)
             net_connect.find_prompt()
         except:
             status = 'Unreachable'
-        print (status)
-        x.gwstatus = (status)
+        sleep(5)
+        x.gwstatus = status
         db.session.commit()
 
         try:
@@ -29,6 +30,9 @@ def fecthdata():
             x.currentusers = int(anyconnectusers)
             db.session.commit()
         except:
+            x.currentusers = 0
+            x.gwstatus = status
+            db.session.commit()
             pass
 
 
