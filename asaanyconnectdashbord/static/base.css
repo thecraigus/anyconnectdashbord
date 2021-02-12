@@ -3,3 +3,23 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+alert{
+    color: red;
+}
+
+#jumbo {
+    background: rgba(125, 120, 120, 0.5);
+    border-style: solid;
+    border-radius: 20px;
+    position: absolute;
+    top:20%;
+    left:10%;
+    width: 80%;
+}
+
+#table {
+    /* border-style: solid; */
+    border-radius: 5px;
+
+}

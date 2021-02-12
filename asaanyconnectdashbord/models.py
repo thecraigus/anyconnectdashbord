@@ -11,12 +11,12 @@ class gateway(db.Model):
     sshuser = db.Column(db.String(20))
     sshpass = db.Column(db.String(20))
     currentusers = db.Column(db.Integer,default=0)
+    gwstatus = db.Column(db.String(20))
     def __init__(self,gatewayname,ipv4addr,sshuser,sshpass):
         self.gatewayname = gatewayname
         self.ipv4addr = ipv4addr
         self.sshuser = sshuser
         self.sshpass = sshpass
-        # self.currentusers = currentusers
 
     def __repr__(self):
         return f'Gateway Name: {self.gatewayname} IP: {self.ipv4addr}'

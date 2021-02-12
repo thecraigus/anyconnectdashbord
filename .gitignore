@@ -1,2 +1,4 @@
 migrations/
 __pycache__/
+asaanyconnectdashbord/__pycache__/
+*.pyc

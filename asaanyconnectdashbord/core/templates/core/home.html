@@ -10,15 +10,17 @@
 
 
 <div class='container'>
- <div class='jumbotron'>
 
-    <table class="table table-hover table-dark">
+ <div class='jumbotron' id='jumbo'>
+
+    <table class="table table-hover table-dark" id="table">
         <thead>
           <tr>
             <th scope="col">Gateway ID</th>
             <th scope="col">Gateway Name</th>
             <th scope="col">Connected Clients</th>
             <th scope="col">Licence Usage</th>
+            <th scope="col">Gateway Status</th>
           </tr>
         </thead>
         <tbody>
@@ -27,6 +29,12 @@
             <th scope="row">{{gateway.id}}</th>
             <td>{{gateway.gatewayname}}</td>
             <td>{{gateway.currentusers}}</td>
+            <td></td>
+            {% if gateway.gwstatus == 'Unreachable' %}
+              <td style="color:red; font-weight:bold">{{gateway.gwstatus}}</td>
+            {% else %}
+            <td>{{gateway.gwstatus}}</td>
+            {% endif %}
         </tr>
         {% endfor %}
        </tbody>

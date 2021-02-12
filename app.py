@@ -12,8 +12,16 @@ scheduler = APScheduler()
 def fecthdata():
     targets = gateway.query.all()
     for x in targets:
-        net_connect = Netmiko(host=x.ipv4addr,username=x.sshuser,password=x.sshpass,device_type='cisco_asa')
-        net_connect.find_prompt()
+        status = 'Online'
+        try:
+            net_connect = Netmiko(host=x.ipv4addr,username=x.sshuser,password=x.sshpass,device_type='cisco_asa', timeout=5)
+            net_connect.find_prompt()
+        except:
+            status = 'Unreachable'
+        print (status)
+        x.gwstatus = (status)
+        db.session.commit()
+
         try:
             neighbors = net_connect.send_command('show vpn-sessiondb',use_textfsm=True)
             anyconnectusers = neighbors[0]['anyconnect_client_active']
