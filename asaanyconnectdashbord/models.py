@@ -12,6 +12,7 @@ class gateway(db.Model):
     sshpass = db.Column(db.String(20))
     currentusers = db.Column(db.Integer,default=0)
     gwstatus = db.Column(db.String(20))
+    vpnlicenseusage = db.Column(db.String(6))
     def __init__(self,gatewayname,ipv4addr,sshuser,sshpass):
         self.gatewayname = gatewayname
         self.ipv4addr = ipv4addr

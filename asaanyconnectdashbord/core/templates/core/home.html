@@ -29,7 +29,7 @@
             <th scope="row">{{gateway.id}}</th>
             <td>{{gateway.gatewayname}}</td>
             <td>{{gateway.currentusers}}</td>
-            <td></td>
+            <td>{{gateway.vpnlicenseusage}}</td>
             {% if gateway.gwstatus == 'Unreachable' %}
               <td style="color:red; font-weight:bold">{{gateway.gwstatus}}</td>
             {% else %}
